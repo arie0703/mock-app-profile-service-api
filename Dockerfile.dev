@@ -1,0 +1,24 @@
+ARG RUBY_VERSION=3.3.5
+FROM docker.io/library/ruby:$RUBY_VERSION-slim
+
+# Dockerfile内のプロキシキャッシュを無効にする(Sonoma以降のOSを利用している場合)
+RUN echo 'Acquire::http::Pipeline-Depth 0;\nAcquire::http::No-Cache true;\nAcquire::BrokenProxy true;\n' > /etc/apt/apt.conf.d/99fixbadproxy
+
+# 必要なパッケージをインストール
+RUN apt-get update -qq && apt-get install -y \
+  build-essential \
+  libpq-dev \
+  nodejs \
+  vim
+
+# アプリケーションディレクトリを作成
+RUN mkdir /myapp
+WORKDIR /myapp
+
+# Gemfile と Gemfile.lock をコピーし、依存関係をインストール
+ADD Gemfile /myapp/Gemfile
+ADD Gemfile.lock /myapp/Gemfile.lock
+RUN bundle install
+
+# アプリケーションの全ファイルをコンテナ内にコピー
+ADD . /myapp

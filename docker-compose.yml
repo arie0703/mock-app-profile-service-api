@@ -1,0 +1,26 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    entrypoint: ["bin/docker-entrypoint"]
+    platform: linux/x86_64
+    command: bash -c "rm -f tmp/pids/server.pid && ./bin/dev -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  db:
+    image: postgres:17-alpine
+    platform: linux/x86_64
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data
+volumes:
+  db_data: {}
