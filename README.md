@@ -1,24 +1,60 @@
-# README
+# mock-app-profile-service-api
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Mock アプリ開発 (Rails API)
 
-Things you may want to cover:
+### Ruby Version
 
-* Ruby version
+3.3.5
 
-* System dependencies
+### Rails Version
 
-* Configuration
+8.0.1
 
-* Database creation
+## Command
 
-* Database initialization
+Migration
 
-* How to run the test suite
+`docker-compose run --rm api rails db:migrate`
 
-* Services (job queues, cache servers, search engines, etc.)
+Rollback
 
-* Deployment instructions
+`docker-compose run --rm api rails db:rollback STEP={N}`
 
-* ...
+## API Request
+
+Create Member
+
+```sh
+curl -X POST "http://localhost:3000/api/v1/members" \
+-H "Content-Type: application/json" \
+-d '{
+  "member": {
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "password": "password123",
+    "image_url": "http://example.com/path/to/image.jpg",
+    "organization_id": "1"
+  }
+}'
+
+```
+
+Sign In
+
+```sh
+curl -X POST "http://localhost:3000/api/v1/sign_in" \
+-H "Content-Type: application/json" \
+-d '{
+  "member": {
+    "email": "john.doe@example.com",
+    "password": "password123"
+  }
+}' | jq .
+```
+
+Sign Out
+
+```sh
+curl -X DELETE "http://localhost:3000/api/v1/sign_out" \
+-H "Content-Type: application/json" | jq .
+```

@@ -17,7 +17,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_17_073524) do
   create_table "members", force: :cascade do |t|
     t.string "name", limit: 50, null: false
     t.string "email", null: false
-    t.string "password", null: false
+    t.string "password_digest", null: false
     t.string "role", default: "Basic", null: false
     t.text "image_url"
     t.bigint "organization_id", null: false

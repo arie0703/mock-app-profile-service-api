@@ -4,6 +4,9 @@ Rails.application.routes.draw do
       resources :organizations, only: [:index, :show, :create]
       resources :members, only: [:index, :show, :create]
       resources :posts, only: [:index, :show, :create]
+
+      post '/sign_in', to: 'session#create'
+      delete '/sign_out', to: 'session#destroy'
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

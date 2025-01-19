@@ -17,4 +17,8 @@ class Api::V1::MembersController < ApplicationController
       render json: @member.errors, status: :bad_request
     end
   end
+
+  def member_params
+    params.fetch(:member, {}).permit(:name, :email, :password, :image_url, :organization_id)
+  end
 end
