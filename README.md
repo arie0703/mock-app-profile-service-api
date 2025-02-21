@@ -22,7 +22,7 @@ Rollback
 
 ## API Request
 
-Create Member
+### Create Member
 
 ```sh
 curl -X POST "http://localhost:3000/api/v1/members" \
@@ -39,7 +39,7 @@ curl -X POST "http://localhost:3000/api/v1/members" \
 
 ```
 
-Sign In
+### Sign In
 
 ```sh
 curl -X POST "http://localhost:3000/api/v1/sign_in" \
@@ -52,9 +52,18 @@ curl -X POST "http://localhost:3000/api/v1/sign_in" \
 }' | jq .
 ```
 
-Sign Out
+### Sign Out
 
 ```sh
 curl -X DELETE "http://localhost:3000/api/v1/sign_out" \
--H "Content-Type: application/json" | jq .
+-H "Content-Type: application/json" \
+-H "Authorization: $sesison_token" | jq .
+```
+
+### Get Members (with session token)
+
+```sh
+curl "http://localhost:3000/api/v1/members" \
+-H "accept: application/json" \
+-H "Authorization: $sesison_token" | jq .
 ```

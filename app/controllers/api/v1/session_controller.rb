@@ -5,7 +5,9 @@ class Api::V1::SessionController < ApplicationController
     @member = Member.find_by(email: member_params[:email])
     if @member && @member.authenticate(member_params[:password])
       sign_in @member
-      render json: current_member, status: :ok
+      key = "user:#{@member.id}:session_token"
+      session_token = $redis.get(key)
+      render json: {member_id: @current_member.id, session_token: session_token}, status: :ok
     else
       message = @member ? "ログインパスワードが間違っています" : "存在しないアカウントです"
       render json: {message: message, }, status: :bad_request
