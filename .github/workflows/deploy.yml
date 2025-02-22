@@ -53,6 +53,7 @@ jobs:
           docker buildx build \
           -f Dockerfile \
           -t $ECR_REGISTRY/$ECR_REPOSITORY:${{ steps.set_image_tag.outputs.IMAGE_TAG }} \
+          --push \
           .
 
   deploy-to-ecs:
