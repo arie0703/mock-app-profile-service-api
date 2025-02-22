@@ -16,6 +16,12 @@
       ],
       "essential": true,
       "environment": [],
+      "secrets": [
+        {
+          "name": "RAILS_MASTER_KEY",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:226259849760:secret:ecs/profile-api-WPzlbu:RAILS_MASTER_KEY::"
+        }
+      ],
       "environmentFiles": [],
       "mountPoints": [],
       "volumesFrom": [],
