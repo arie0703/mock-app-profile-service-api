@@ -3,10 +3,9 @@ on:
   workflow_dispatch:
 
 env:
-  AWS_ROLE_ARN: arn:aws:iam::226259849760:role/gha-ecs-deploy-role
+  AWS_ROLE_ARN: arn:aws:iam::226259849760:role/gha-profile-api-role
   AWS_REGION: ap-northeast-1
   ECR_REPOSITORY: profile-api
-  ECS_TASK: profile-api
   ECS_TASK_DEF_FILE: task-definition.json
   ECS_SERVICE: profile-api
   ECS_CLUSTER: profile-cluster
