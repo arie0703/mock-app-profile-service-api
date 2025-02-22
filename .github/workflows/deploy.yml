@@ -6,7 +6,7 @@ env:
   AWS_ROLE_ARN: arn:aws:iam::226259849760:role/gha-profile-api-role
   AWS_REGION: ap-northeast-1
   ECR_REPOSITORY: profile-api
-  ECS_TASK_DEF_FILE: task-definition.json
+  ECS_TASK_DEF_FILE: task_definition.json
   ECS_SERVICE: profile-api
   ECS_CLUSTER: profile-cluster
   CONTAINER_NAME: profile-api
@@ -53,6 +53,7 @@ jobs:
           docker buildx build \
           -f Dockerfile \
           -t $ECR_REGISTRY/$ECR_REPOSITORY:${{ steps.set_image_tag.outputs.IMAGE_TAG }} \
+          --push \
           .
 
   deploy-to-ecs:
