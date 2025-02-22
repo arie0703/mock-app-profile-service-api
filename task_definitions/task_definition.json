@@ -36,8 +36,8 @@
     }
   ],
   "family": "profile-api",
-  "taskRoleArn": "arn:aws:iam::226259849760:role/ecsTaskExecutionRole",
-  "executionRoleArn": "arn:aws:iam::226259849760:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::226259849760:role/profile-api-task-role",
+  "executionRoleArn": "arn:aws:iam::226259849760:role/profile-api-task-execution-role",
   "networkMode": "awsvpc",
   "volumes": [],
   "placementConstraints": [],
