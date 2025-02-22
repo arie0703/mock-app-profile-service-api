@@ -49,3 +49,6 @@ group :development, :test do
 end
 
 
+group :production do
+  gem 'sqlite3', '~> 2.0.2'
+end
