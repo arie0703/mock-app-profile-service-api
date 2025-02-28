@@ -15,7 +15,18 @@
         }
       ],
       "essential": true,
-      "environment": [],
+      "environment": [
+        {
+          "name": "RAILS_ENV",
+          "value": "production"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "RAILS_MASTER_KEY",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:226259849760:secret:ecs/profile-api-WPzlbu:RAILS_MASTER_KEY::"
+        }
+      ],
       "environmentFiles": [],
       "mountPoints": [],
       "volumesFrom": [],
@@ -36,8 +47,8 @@
     }
   ],
   "family": "profile-api",
-  "taskRoleArn": "arn:aws:iam::226259849760:role/ecsTaskExecutionRole",
-  "executionRoleArn": "arn:aws:iam::226259849760:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::226259849760:role/profile-api-task-role",
+  "executionRoleArn": "arn:aws:iam::226259849760:role/profile-api-task-execution-role",
   "networkMode": "awsvpc",
   "volumes": [],
   "placementConstraints": [],

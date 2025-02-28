@@ -50,5 +50,5 @@ end
 
 
 group :production do
-  gem 'sqlite3', '~> 2.0.2'
+  gem 'sqlite3', '>= 2.1'
 end
