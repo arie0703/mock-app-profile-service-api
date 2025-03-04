@@ -8,6 +8,12 @@ Rails.application.routes.draw do
       post '/sign_in', to: 'session#create'
       delete '/sign_out', to: 'session#destroy'
     end
+
+    namespace :v2 do
+      resources :organizations, only: [:index, :show, :create]
+      resources :members, only: [:index, :show, :create]
+      resources :posts, only: [:index, :show, :create]
+    end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -5,12 +5,12 @@
 #   gem "sqlite3"
 #
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
+  encoding: unicode
   pool: 5
 
 development:
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
   database: profile_service_development
   host: db
   username: postgres

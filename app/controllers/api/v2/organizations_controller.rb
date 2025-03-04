@@ -1,4 +1,4 @@
-class Api::V1::OrganizationsController < Api::V1::ApplicationController
+class Api::V2::OrganizationsController < Api::V2::ApplicationController
   def index
     @organizations = Organization.all
     render json: @organizations, status: :ok

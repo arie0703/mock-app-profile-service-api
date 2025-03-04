@@ -1,4 +1,4 @@
-class Api::V1::MembersController < Api::V1::ApplicationController
+class Api::V2::MembersController < Api::V2::ApplicationController
   def index
     @members = Member.all
     render json: @members, status: :ok

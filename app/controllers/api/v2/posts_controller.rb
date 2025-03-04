@@ -1,4 +1,4 @@
-class Api::V1::PostsController < Api::V1::ApplicationController
+class Api::V2::PostsController < Api::V2::ApplicationController
   def index
     @posts = Post.all
     render json: @posts, status: :ok

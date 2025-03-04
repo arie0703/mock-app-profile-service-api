@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::API
+class Api::V1::ApplicationController < ActionController::API
   include SessionHelper
   before_action :signed_in_member
   private

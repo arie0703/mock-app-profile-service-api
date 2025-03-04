@@ -14,6 +14,7 @@ services:
       - db
       - redis
     environment:
+      RAILS_ENV: development
       REDIS_URL: redis://redis:6379/0
   db:
     image: postgres:17-alpine
