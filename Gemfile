@@ -48,7 +48,8 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 end
 
+gem "jwt", "~> 2.10"
 
-group :production do
-  gem 'sqlite3', '>= 2.1'
-end
+gem "json-jwt", "~> 1.16"
+
+gem "dotenv-rails", "~> 3.1"

@@ -67,3 +67,9 @@ curl "http://localhost:3000/api/v1/members" \
 -H "accept: application/json" \
 -H "Authorization: $sesison_token" | jq .
 ```
+
+## API Version
+
+`v1`: ユーザー認証を Rails で行う。Members テーブルに認証ユーザー情報がある
+
+`v2`: Cognito を用いてユーザー認証を行う。
