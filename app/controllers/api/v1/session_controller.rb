@@ -1,4 +1,4 @@
-class Api::V1::SessionController < ApplicationController
+class Api::V1::SessionController < Api::V1::ApplicationController
   skip_before_action :signed_in_member
 
   def create
